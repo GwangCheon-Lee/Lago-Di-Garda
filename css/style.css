@@ -1,0 +1,1172 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+html {
+    font-family: sans-serif;
+    font-size: 100%;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* header */
+header {
+    height: 100%;
+    box-sizing: border-box;
+    height: 969px;
+}
+.menu {
+    width: 100%;
+    padding: 24px 8px 0px 8px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 15;
+    box-sizing: border-box;
+}
+.menu > li {
+    text-align: center;
+    flex: 1 1 0;
+}
+.menu > li:nth-child(4) {
+    margin: 0 20px;
+}
+.menu > li a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.84em;
+}
+.menu > li a:hover {
+    border-bottom: 4px solid rgba(41, 197, 212, 0.8);
+} /* 메뉴 PC버전 */
+.pc_menu {
+    transition: 0.5;
+    display: none;
+    width: 100%;
+    height: 30%;
+    position: fixed;
+    top: -30%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 24px 8px 32px 8px;
+    align-items: center;
+    flex: 1 1 0;
+}
+.pc_menu ul {
+    position: relative;
+    z-index: 3;
+    flex: 1 1 0;
+    text-align: center;
+    height: 50%;
+    bottom: -50px;
+}
+.pc_menu ul li {
+    width: 100%;
+}
+.pc_menu ul li a {
+    color: #161616;
+    letter-spacing: 0.1em;
+    font-size: 0.65em;
+}
+.pc_menu ul:nth-child(4) {
+    padding: 0;
+}
+svg polygon,
+svg path {
+    fill: #fff;
+} /* 로고 색상 변경 */
+.title {
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    font-size: 2.6em;
+    font-family: "Korolev Light";
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -2%);
+    margin-bottom: 32px;
+} /* 메인 타이틀 디자인 */
+.btn_menu {
+    width: 80%;
+    font-family: "Korolev Light";
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    line-height: 1.3;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 100%);
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 0 27%;
+    margin: 0 10px;
+}
+.btn_menu button {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 57.375px;
+    border: none;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.btn_menu button:first-child {
+    background-color: rgba(41, 197, 212, 0.8);
+    color: #474747;
+}
+.btn_menu button:first-child:hover {
+    transition: all 0.8s ease-out;
+    background: linear-gradient(
+        270deg,
+        rgba(41, 197, 212, 0.8),
+        rgba(0, 156, 175, 0.8),
+        rgba(0, 156, 175, 0.6),
+        rgba(0, 156, 175, 0.4)
+    );
+    color: rgba(255, 255, 255, 0.8);
+}
+.btn_menu button:last-child {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #fff;
+}
+.btn_menu button:last-of-type:hover {
+    transition: all 1s ease-out;
+    background: linear-gradient(
+        270deg,
+        rgba(188, 183, 175, 0.8),
+        rgba(121, 118, 112, 0.8),
+        rgba(34, 34, 34, 0),
+        rgba(34, 34, 34, 0)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn_menu button:last-child:hover span {
+    transition: all 1s ease-out;
+    color: #fff;
+}
+.btn_menu button:last-child span {
+    color: rgba(255, 255, 255, 0.8);
+} /* 버튼 */
+.header_text {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 38.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 13px;
+}
+.hamburger_box {
+    display: none;
+    height: 18px;
+}
+.hamburger_box span {
+    cursor: pointer;
+}
+.hamburger {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.hamburger > div {
+    width: 30px;
+    height: 2px;
+    margin-bottom: 6px;
+    background-color: #fff;
+}
+.m_menu_box {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    display: none;
+}
+.m_menu_box .left {
+    width: 20%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    right: -120%;
+}
+.m_menu_box .right {
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    position: relative;
+    right: -80%;
+} /* 모바일 메뉴박스는 오른쪽에서 나와야 하기 때문에 오른쪽으로 컨텐츠 크기만큼 밀어 넣어야함 */
+.m_menu_box ul > li {
+    position: relative;
+    right: -100%;
+}
+.m_menu_box ul > li a {
+    position: relative;
+    z-index: 1;
+    line-height: 2.8;
+}
+.m_menu_box ul > li > a::after {
+    transition: 1s;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%);
+    height: 4px;
+    width: 0%;
+    background-color: #29c5d4;
+    z-index: -1;
+}
+.m_menu_box ul > li:hover a::after {
+    width: 100%;
+    transition: 0.3s;
+}
+.m_menu {
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-size: 0.9em;
+    font-family: "Korolev Light";
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.m_menu img {
+    width: 24px;
+    height: 24px;
+    margin: 20px 10px;
+}
+.scroll {
+    border: 1px solid #fff;
+    position: absolute;
+    bottom: 5%;
+    border-radius: 16px;
+    left: 50%;
+    width: 18px;
+    height: 32px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.scroll a {
+    width: 18px;
+    height: 32px;
+    display: block;
+}
+.scroll_box {
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    position: relative;
+    left: 38%;
+    top: 20%;
+    animation: scroll_box 1.5s ease infinite;
+}
+@keyframes scroll_box {
+    0% {
+        top: 20%;
+        opacity: 1;
+    }
+    100% {
+        top: 80%;
+        opacity: 0;
+    }
+}
+.bg_video {
+    width: 100%;
+    height: 969px;
+    object-fit: cover;
+} /* 배경 */
+/* header */
+/* content1 */
+.content1 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1;
+    text-align: center;
+}
+.con1_left {
+    padding: 4% 2%;
+    height: 100%;
+    grid-column: 1/4;
+    grid-row: 1/2;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.con1_left h2 {
+    position: relative;
+    left: -40%;
+    opacity: 0;
+    font-family: "Korolev Thin";
+    font-size: 1.75em;
+    letter-spacing: 0.1em;
+    padding-top: 35%;
+    box-sizing: border-box;
+}
+.con1_left p {
+    width: 80%;
+    margin: 0 auto;
+    padding: 5% 0;
+    position: relative;
+    right: -40%;
+    opacity: 0;
+    box-sizing: border-box;
+    font-family: "Korolev Light";
+    font-size: 0.9em;
+    letter-spacing: 0.2em;
+    color: #747474;
+    line-height: 1.6;
+}
+.con1_left strong {
+    color: black;
+    font-weight: 700;
+}
+.con1_left h3 {
+    position: relative;
+    left: -40%;
+    opacity: 0;
+    padding-bottom: 35%;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 0.85em;
+}
+.con1_right {
+    grid-column: 4/6;
+    grid-row: 1/2;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.con1_right_warp {
+    width: 200%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+}
+.con1_right p:first-child {
+    font-family: "Korolev Thin";
+}
+.con1_right p:nth-child(2) {
+    font-size: 1.75em;
+    font-family: "Korolev Thin";
+}
+.con1_right p:last-child {
+    font-weight: bold;
+    font-size: 0.85em;
+}
+.con1_right p:nth-child(1) {
+    padding-top: 35%;
+    margin-top: 20%;
+    box-sizing: border-box;
+}
+.con1_right p:nth-child(2) {
+    padding: 5% 0;
+    box-sizing: border-box;
+}
+.con1_right p:nth-child(3) {
+    padding-bottom: 35%;
+    box-sizing: border-box;
+}
+.con1_right1 {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    background: url(../images/couples-joy-3-650x.jpg) no-repeat center / cover;
+    color: #111;
+}
+.con1_right1 > p {
+    position: relative;
+    right: 30%;
+    opacity: 0;
+}
+.con1_right2 > p {
+    position: relative;
+    left: 30%;
+    opacity: 0;
+}
+.con1_right2 {
+    text-transform: uppercase;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    background: url(../images/offerta-romantic-650.jpg) no-repeat center / cover;
+}
+.con1_right .dot {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, 0);
+}
+.con1_right .dot > div {
+    cursor: pointer;
+}
+.con1_right .dot > div:first-child {
+    background-color: #333;
+}
+.con1_right .dot > div {
+    border: 2px solid #fff;
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.left_arrow {
+    width: 26.39px;
+    height: 26.39px;
+    left: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+.right_arrow {
+    width: 26.39px;
+    height: 26.39px;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    cursor: pointer;
+}
+/* content1 */
+/* rooms */
+.rooms {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    font-family: "Korolev Light";
+    text-align: center;
+    color: #fff;
+    padding: 8% 5%;
+    min-height: 560px;
+    box-sizing: border-box;
+}
+.rooms img {
+    width: 100%;
+    min-height: 512px;
+}
+.rooms_box {
+    position: absolute;
+    left: 30%;
+    opacity: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.rooms h3 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    font-weight: normal;
+}
+.rooms p {
+    font-size: 0.85em;
+    letter-spacing: 0.2em;
+    line-height: 1.8;
+    margin: 5% 0;
+}
+.rooms span {
+    font-weight: bold;
+    font-size: 0.85em;
+}
+/* rooms */
+/* unfollow */
+.unfollow {
+    font-family: "Korolev Light";
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 6;
+    grid-template-rows: 2;
+    margin-bottom: 8%;
+}
+.unfollow_box {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5% 15%;
+    grid-column: 1/6;
+    grid-row: 1/1;
+    margin-bottom: 5%;
+}
+.unfollow_box img {
+    width: 100%;
+}
+.unfollow p {
+    width: 80%;
+    margin: 0 auto;
+}
+.unfollow strong {
+    color: #333;
+}
+.un_left {
+    width: 100%;
+    box-sizing: border-box;
+    color: #747474;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    line-height: 1.6;
+    grid-column: 3/3;
+    grid-row: 2/2;
+}
+.un_right {
+    box-sizing: border-box;
+    width: 100%;
+    color: #747474;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    line-height: 1.6;
+    grid-column: 4/4;
+    grid-row: 2/2;
+}
+/* unfollow */
+/* content2 */
+.content2 {
+    display: flex;
+    justify-content: center;
+}
+.content2 .con2_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%;
+    font-family: "Korolev Light";
+    color: #fff;
+}
+.content2 img {
+    width: 100%;
+}
+.con2_text h3 {
+    font-weight: normal;
+    font-size: 1.5em;
+    position: relative;
+    left: -40%;
+    opacity: 0;
+}
+.con2_text p {
+    margin: 12% 0;
+    box-sizing: border-box;
+    font-family: "Korolev Light";
+    line-height: 1.8;
+    font-size: 0.85em;
+    position: relative;
+    left: 40%;
+    opacity: 0;
+}
+.con2_text span {
+    font-weight: bold;
+    position: relative;
+    left: -40%;
+    opacity: 0;
+}
+.con2_left {
+    position: relative;
+    flex: 1 1 auto;
+}
+.con2_right {
+    position: relative;
+    flex: 1 1 auto;
+}
+/* content2 */
+/* content3 */
+.content3 {
+    position: relative;
+    height: 227px;
+    box-sizing: border-box;
+}
+.content3 .btn_menu span:last-child {
+    color: #333;
+}
+.content3 .btn_menu button:last-child {
+    border: 1px solid #333;
+}
+.content3 p {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Korolev Light";
+    margin-bottom: 5%;
+}
+.btn_menu2 {
+    width: 80%;
+    font-family: "Korolev Light";
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    line-height: 1.3;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.btn_menu2 button {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 57.375px;
+    border: none;
+    position: static;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    cursor: pointer;
+    margin: 5% 4%;
+}
+.btn_menu2 button:first-child {
+    background-color: rgba(41, 197, 212, 0.8);
+    color: #474747;
+}
+.btn_menu2 button:first-child:hover {
+    transition: all 0.8s ease-out;
+    background: linear-gradient(
+        270deg,
+        rgba(41, 197, 212, 0.8),
+        rgba(0, 156, 175, 0.8),
+        rgba(0, 156, 175, 0.6),
+        rgba(0, 156, 175, 0.4)
+    );
+    color: rgba(255, 255, 255, 0.8);
+}
+.btn_menu2 button:last-child {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #555;
+}
+.btn_menu2 button:last-of-type:hover {
+    transition: all 1s ease-out;
+    background: linear-gradient(
+        270deg,
+        rgba(188, 183, 175, 0.8),
+        rgba(121, 118, 112, 0.8),
+        rgba(34, 34, 34, 0),
+        rgba(34, 34, 34, 0)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn_menu2 button:last-child:hover span {
+    transition: all 1s ease-out;
+    color: #fff;
+}
+.btn_menu2 button:last-child span {
+    color: #333;
+} /* 버튼 */
+/* content3 */
+/* content4 */
+.content4 {
+    height: 292.59px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    padding: 64px 0;
+}
+.con4_top {
+    text-align: center;
+    font-family: "Korolev Thin";
+    color: #4e5d63;
+    letter-spacing: 0.15em;
+}
+.con4_top p {
+    margin: 3% 0;
+    font-family: "Korolev Light";
+    font-weight: bold;
+    font-size: 0.85em;
+}
+.btn_menu3 {
+    width: 100%;
+    font-family: "Korolev Light";
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    line-height: 1.3;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 50px auto;
+}
+.btn_menu3 button {
+    margin: 0 auto;
+    width: 200px;
+    display: block;
+    height: 57.375px;
+    border: none;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #555;
+}
+.btn_menu3 button:hover {
+    transition: all 1s ease-out;
+    background: linear-gradient(
+        270deg,
+        rgba(188, 183, 175, 0.8),
+        rgba(121, 118, 112, 0.8),
+        rgba(34, 34, 34, 0),
+        rgba(34, 34, 34, 0)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn_menu3 button:hover span {
+    transition: all 1s ease-out;
+    color: #fff;
+}
+.btn_menu3 button span {
+    color: #333;
+}
+/* content4 */
+/* award */
+.award {
+    box-sizing: border-box;
+    width: 100%;
+}
+.award img {
+    width: 100%;
+}
+.award_wrap {
+    width: 75%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 2% 5%;
+    margin: 0% auto;
+    justify-content: center;
+    align-items: center;
+}
+.award_box {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 15px;
+    flex: 1 1 auto;
+}
+.award p {
+    margin: 5% 0;
+    text-align: center;
+    font-size: 0.85em;
+    color: #a7a7a7;
+}
+/* award */
+/* trip */
+.trip {
+    width: 100%;
+    padding: 32px 16px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-flow: row nowrap;
+    box-sizing: border-box;
+}
+.trip_box {
+    width: 100%;
+    height: 55.359;
+    padding: 16px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+.trip img {
+    width: 30%;
+    margin-bottom: 4%;
+}
+.trip p {
+    font-size: 0.85em;
+    font-weight: bold;
+}
+/* trip */
+/* SNS */
+.sns {
+    width: 80%;
+    margin: 48px auto;
+    text-align: center;
+}
+.sns h2 {
+    font-weight: normal;
+    font-family: "Korolev Thin";
+    font-size: 1.2em;
+}
+.sns_box {
+    width: 30px;
+    height: 30px;
+    margin: 24px auto;
+}
+.sns img {
+    width: 100%;
+}
+/* SNS */
+/* language */
+.language {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.language > div {
+    text-align: center;
+    width: 15%;
+    box-sizing: border-box;
+    margin-bottom: 32px;
+    color: #258faf;
+}
+/* language */
+/* footer */
+footer {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    color: #a7a7a7;
+    font-size: 0.85em;
+    padding: 32px 0;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
+footer address {
+    font-style: normal;
+    margin: 20px 0;
+}
+footer address a {
+    margin: 0 16px;
+    color: #258faf;
+}
+footer address a:last-child {
+    margin: 0 5px;
+}
+footer ul {
+    display: flex;
+    justify-content: center;
+}
+footer ul li {
+    font-size: 0.8em;
+    margin: 0 16px;
+}
+footer ul li a {
+    color: #258faf;
+}
+/* footer */
+.popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 20;
+    display: none;
+}
+.popup_box {
+    width: 70%;
+    height: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.popup_box img {
+    width: 100%;
+    height: 100%;
+}
+.chat {
+    position: fixed;
+    width: 200px;
+    bottom: 0px;
+    right: 0;
+    display: flex;
+    text-align: center;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    z-index: 30;
+}
+.chat .chat1 {
+    padding: 1% 2%;
+    display: flex;
+    width: 20%;
+    background-color: #b5a9a0;
+    border-top-left-radius: 8px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+.chat .chat1 img {
+    width: 24px;
+    height: 24px;
+}
+.chat .chat2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 0.85em;
+    width: 80%;
+    background-color: #c3b7ad;
+    border-top-right-radius: 8px;
+}
+.chat .chatting {
+    width: 100%;
+    background-color: #c3b7ad;
+    height: 300px;
+    border-top: 1px solid #333;
+    display: none;
+}
+.chatting ul {
+    height: 250px;
+    overflow-y: scroll;
+}
+.chatting .input_box {
+    padding: 0;
+    background-color: #c3b7ad;
+    margin-top: -10px;
+}
+.input_box input {
+    outline: none;
+    border: none;
+    width: 90%;
+    padding: 2% 5%;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.input_box input::placeholder {
+    color: #555;
+}
+.chatting_box {
+    height: 90%;
+    max-height: 334px;
+    background-color: #c3b7ad;
+}
+.chatting_box ul li {
+    width: 70%;
+    display: flex;
+    box-sizing: border-box;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+.chatting_box ul li p {
+    display: inline-block;
+    font-size: 0.85em;
+    width: 70%;
+}
+.chatting_box ul li span {
+    display: inline-block;
+}
+.chatting_box ul li.guest {
+    float: right;
+}
+.chatting_box ul li.guest p {
+    background-color: #db9358;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+.counselor {
+    float: left;
+}
+.chatting_box ul li.counselor p {
+    background-color: #b5a9a0;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+.guest span {
+    font-size: 10px;
+    text-align: right;
+    margin-right: 5px;
+}
+.counselor span {
+    font-size: 10px;
+    text-align: left;
+    margin-left: 5px;
+}
+.link_box {
+    display: flex;
+}
+@media screen and (max-width: 640px) {
+    .pc_menu {
+        display: none;
+    }
+    .title {
+        font-size: 2em;
+    }
+    .btn_menu button {
+        margin: 0 2px;
+    }
+    .hamburger_box {
+        display: flex;
+        color: #fff;
+        font-weight: 500;
+        font-size: 0.84em;
+        width: 70%;
+        justify-content: flex-end;
+        margin-right: 15px;
+    }
+    .menu > li:nth-child(1),
+    .menu > li:nth-child(2),
+    .menu > li:nth-child(3),
+    .menu > li:nth-child(5),
+    .menu > li:nth-child(6),
+    .menu > li:nth-child(7) {
+        display: none;
+    }
+    .btn_menu {
+        padding: 0 55px;
+    }
+    .header_text {
+        bottom: 35%;
+        text-align: center;
+    }
+    .content1 {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 2;
+    }
+    .con1_left {
+        grid-column: 1/6;
+        grid-row: 1/2;
+    }
+    .con1_right {
+        grid-column: 1/6;
+        grid-row: 2/3;
+    }
+    .con1_right p:nth-child(1) {
+        padding-top: 35%;
+        margin-top: -6%;
+        box-sizing: border-box;
+    }
+    .rooms img {
+        height: 576px;
+    }
+    .unfollow {
+        grid-template-columns: 3;
+        grid-template-rows: 3;
+    }
+    .unfollow_box {
+        grid-column: 1/3;
+        grid-row: 1/1;
+    }
+    .un_left {
+        grid-column: 1/3;
+        grid-row: 2/2;
+    }
+    .un_right {
+        grid-column: 1/3;
+        grid-row: 3/3;
+    }
+    .content2 {
+        display: block;
+    }
+    .content2 h3:first-child {
+        width: 80%;
+        margin: 10% auto;
+    }
+    .content2 .con2_text {
+        width: 100%;
+    }
+    .con2_text p {
+        display: none;
+    }
+    .con2_left {
+        box-sizing: border-box;
+        padding: 3%;
+    }
+    .con2_right {
+        box-sizing: border-box;
+        padding: 3%;
+    }
+    .con2_right span {
+        display: inline;
+    }
+    .content3 {
+        height: 288px;
+    }
+    .btn_menu2 {
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+    }
+    .btn_menu2 button {
+        flex: 0 0 auto;
+        width: 200px;
+        margin: 2% auto;
+    }
+    .content3 p {
+        margin-top: 10%;
+    }
+    .award {
+        text-align: center;
+    }
+    .award img {
+        width: 80%;
+    }
+    .award_box {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .award_wrap {
+        flex-direction: column;
+    }
+    .trip {
+        display: block;
+        height: 100%;
+    }
+    .trip_box {
+        width: 49%;
+        display: inline-block;
+    }
+    footer ul {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 500px) {
+    .pc_menu {
+        display: none;
+    }
+    #btn_menu {
+        flex-direction: column;
+        justify-items: center;
+        margin: 0 auto;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .btn_menu button {
+        margin: 10px auto;
+    }
+    .header_text {
+        bottom: 25%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,12 @@
+[
+    {
+        "id": "guest",
+        "text": "May I have the hotel phone number?",
+        "time": "2021 20:23:12"
+    },
+    {
+        "id": "counselor",
+        "text": "Yes, the hotel number is +39 0464 505111",
+        "time": "2021 20:53:12"
+    }
+]
